@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Repin – Personalized Cold Emails & DMs</title>
+<link rel="icon" type="image/png" href="https://github.com/hrishis-projects/repin/blob/main/Repin%20logo%20(1).png?raw=true" />
+
+  <!-- Bricolage Grotesque Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@24..96,400;24..96,500;24..96,600;24..96,700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0b0b0c;
+      --card: #141416;
+      --text: #f5f5f5;
+      --muted: #a1a1aa;
+      --blue: #3b82f6;
+      --blue-dark: #2563eb;
+      --border: #26262b;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Bricolage Grotesque", system-ui, sans-serif;
+    }
+
+    body {
+      background: radial-gradient(circle at top, #111118, var(--bg));
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* ===== NAVBAR ===== */
+    header {
+      display: flex;
+      justify-content: center;
+      padding: 28px 20px;
+    }
+
+    .nav-box {
+      width: 100%;
+      max-width: 960px;
+      background: linear-gradient(180deg, #18181b, #121214);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 20px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 27px;
+      font-weight: 600; /* SemiBold for Repin text */
+      letter-spacing: 0.2px;
+    }
+
+    .logo img {
+      height: 45px;
+      width: auto;
+      border-radius: 6px;
+    }
+
+/* Nav fade-down animation */
+@keyframes fadeDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* Fade-up animation for main content */
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Apply fade-up to main content */
+main h1,
+main .subtitle,
+main .cta {
+  opacity: 0; /* start hidden */
+  animation: fadeUp 0.8s ease forwards;
+}
+
+/* Optional: stagger animations for a nicer effect */
+main h1 {
+  animation-delay: 0.3s;
+}
+
+main .subtitle {
+  animation-delay: 0.5s;
+}
+
+main .cta {
+  animation-delay: 0.7s;
+}
+
+
+.nav-box {
+  animation: fadeDown 0.8s ease forwards;
+}
+
+
+    /* ===== DESKTOP NAV ===== */
+    .nav-desktop {
+      display: flex;
+      gap: 14px;
+    }
+
+    .nav-desktop button {
+      padding: 10px 18px;
+      border-radius: 14px;
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text);
+    }
+
+    .nav-desktop .primary {
+      background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+      border: none;
+      color: #fff;
+      font-weight: 600;
+    }
+
+    /* ===== MOBILE NAV ===== */
+    .nav-mobile {
+      display: none;
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-size: 18px;
+      padding: 10px 14px;
+      border-radius: 14px;
+      cursor: pointer;
+    }
+
+    /* ===== HERO ===== */
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 80px 20px 40px;
+    }
+
+    h1 {
+      font-size: clamp(36px, 6vw, 64px);
+      line-height: 1.1;
+      max-width: 900px;
+      margin-bottom: 24px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    .highlight {
+      background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+      padding: 5px 14px;
+      border-radius: 24px;
+      display: inline-block;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      max-width: 620px;
+      font-size: 18px;
+      margin-bottom: 40px;
+      font-weight: 400;
+    }
+
+    .cta {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .cta button {
+      padding: 14px 28px;
+      font-size: 16px;
+      border-radius: 14px;
+      cursor: pointer;
+      border: none;
+      font-weight: 600;
+    }
+
+    .cta .primary {
+      background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+      color: white;
+    }
+
+    .cta .secondary {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+      font-weight: 500;
+    }
+
+    footer {
+      margin-top: 80px;
+      padding: 30px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 400;
+    }
+
+    @media (max-width: 768px) {
+      .nav-desktop { display: none; }
+      .nav-mobile { display: block; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="nav-box">
+      <div class="logo">
+        <img
+          src="https://github.com/hrishis-projects/repin/blob/main/Repin%20logo%20(1).png?raw=true"
+          alt="Repin logo"
+        />
+        Repin
+      </div>
+
+      <nav class="nav-desktop">
+        <button>Sign in</button>
+        <button class="primary">Get started</button>
+      </nav>
+
+      <button class="nav-mobile">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <h1>
+      Send personalized cold emails<br/>
+      that <span class="highlight">get replies</span>
+    </h1>
+
+    <p class="subtitle">
+      Repin helps you write highly personalized cold emails and DMs
+      tailored to each prospect, sent faster, and built to convert.
+    </p>
+
+    <div class="cta">
+      <button class="primary">Start sending emails</button>
+      <button class="secondary">Learn more</button>
+    </div>
+  </main>
+
+  <footer>
+    © 2026 Repin. All rights reserved.
+  </footer>
+</body>
+</html>
